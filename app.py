@@ -40,12 +40,14 @@ def check_word():
 def post_score():
     """Receive score, update nplays, update high score if appropriate."""
     # breakpoint()
-    breakpoint()
+    # breakpoint()
     score = request.json["score"]
     highscore = session.get("highscore", 0)
     nplays = session.get("nplays", 0)
 
     session['nplays'] = nplays + 1
     session['highscore'] = max(score, highscore)
+
+    # breakpoint()
 
     return jsonify(brokeRecord=score > highscore)
